@@ -33,7 +33,7 @@ body{
     padding: 0 0 0 100px;
 }
 #ham-menu{
-    display: none;
+    display: none;  
 }
 
 .menu img{
@@ -45,7 +45,7 @@ body{
 .menu ul{
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     color: var(--Dark-grayish-blue);
@@ -133,6 +133,11 @@ hr{
     margin-top: 10%;
     width: 42vw;
     margin-left: 6vw;
+}
+.price{
+    display: flex;
+    align-items: center;
+    font-weight: 300;
 }
 .heading, .discounted-price, .original-price{
     margin-block-start: 0;
@@ -228,55 +233,73 @@ button:hover{
     border-radius: 50%;
   
 }
+
 .notification-content{
     background-color: hsl(0, 0%, 100%);
     z-index: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     width: 350px;
     padding: 20px;
     border-radius: 7px;
     box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.651);
-    min-height: 150px;
+    min-height: 120px;
     position: absolute;
     top: 75px;
-    right: 50px;
+    right: 70px;
     align-items: center;
+
 }
-.price{
+/*Add to Cart Styling */
+.notification-content h2{
+    width: 100%;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.notification-details{
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-weight: 300;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 1px solid var(--Light-grayish-blue) ;
 }
 
-/* For small devices (phones, 600px and down)
-@media(max-width: 600px){
-    .wrapper{
-        display: block;
-    }
-    .main-img{
-        width: 80vw !important;
-    }
+.notification-details img{
+    width: 15%;
+    height: 50px;
+    cursor: pointer;
 }
-/* For Small devices (portrait tablets and large phones, 600px and up) */
-/* @media(max-width: 600px){}
 
-/* For Medium devices (landscape tablets, 768px and up) */
-/* @media(min-width: 768px){
+.notification-prod-details{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 80px;
+}
 
+.notification-prod-details p{
+    font-size: 15px;
+    width: 100%;
+    padding-bottom: 6px;
+    margin: 0;
+    margin-left: 25px;
+}
 
-} */
-/* For Large devices (laptops/desktops, 992px and down) */
-/* @media(max-width: 992px){
-    .features{
-        display: block;
-    }
-    .main-img{
-        width: 35vw;
-    }
-    .content-wrapper{
-        width: 45vw;
-    }
-/* } */ 
-/* For Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media(min-width: 1200px){} */
+.notification-price {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.notification-price p{
+    padding: 2px;
+}
+
+.notification-price strong{
+    font-size: 15px;
+    margin-left: 5px;
+}
