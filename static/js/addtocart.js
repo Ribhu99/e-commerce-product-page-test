@@ -7,6 +7,8 @@ const cartIcon = document.getElementById('cart-icon');
 const productName = document.querySelector('.heading');
 const productAmount = document.querySelector('.discounted-price');
 const quantityDisplay = document.querySelector('.cart-quantity');
+const mobileView = document.getElementById('ham-menu');
+const closeMenu = document.getElementById('close-menu');
 
  
 // <--add to cart logic-->
@@ -100,11 +102,11 @@ addToCartButton.addEventListener('click', () => {
       notificationPricing.appendChild(totalAmount);
 
 
-    // Delete Icon
-    const deleteIcon = document.createElement('img');
-    deleteIcon.src = './images/icon-delete.svg';
-    deleteIcon.alt = 'Delete Icon';
-    deleteIcon.addEventListener('click', () => {
+      // Delete Icon
+      const deleteIcon = document.createElement('img');
+      deleteIcon.src = './images/icon-delete.svg';
+      deleteIcon.alt = 'Delete Icon';
+      deleteIcon.addEventListener('click', () => {
       notificationDetails.style.display = 'none';
       // checkoutButton.style.display = 'none';
 
@@ -117,12 +119,25 @@ addToCartButton.addEventListener('click', () => {
     });
     notificationDetails.appendChild(deleteIcon);
   
-
-      
-      // Toggle the cart state
       cartIconPopUp.appendChild(notificationContent);
+       // Toggling the cart state
       cartOpen=!cartOpen;
       console.log(cartOpen);
+      document.body.appendChild(notificationContent)
     }
   });
+
+// Function to handle the mobile hamburger menu click and closing it
+function MobileView() {
+  mobileView.addEventListener('click', () => {
+    const navMobileMenu = document.querySelector('.menu');
+    navMobileMenu.style.display = 'block';
+  
+    document.getElementById('close-menu').addEventListener('click', () => {
+      navMobileMenu.style.display = 'none';
+    })
+  
+  })
+}
+MobileView();
 
