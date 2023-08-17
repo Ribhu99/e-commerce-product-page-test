@@ -200,7 +200,7 @@ button:hover{
 }
 .counter{
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -245,6 +245,7 @@ button:hover{
     z-index: 1;
     display: flex;
     flex-direction:column;
+    align-items: center;
     width: 350px;
     padding: 20px;
     border-radius: 7px;
@@ -264,6 +265,19 @@ button:hover{
     font-weight: 600;
 }
 
+.notification-content button{
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: orange;
+    color: var(--White);
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
 .notification-details{
     display: flex;
     justify-content: space-between;
@@ -425,7 +439,7 @@ button:hover{
         justify-content: space-between;
         width: 100%;
         background-color: var(--Light-grayish-blue);
-        border-radius: 10px;
+        border-radius: 15px;
         margin:10px 0;
     }
     .cart-btn-wrapper{
@@ -434,14 +448,6 @@ button:hover{
         justify-content: center;
         width: 100%;
     }
-
-    /* .cart-btn{
-        background-color: hsl(26, 100%, 55%);
-        padding: 0.5rem 3rem;
-        border-radius: 0.4rem;
-        color: white;
-        margin: 0; 
-        margin-left: 35px;
-    } */
+    
 
 }
