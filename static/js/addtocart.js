@@ -10,13 +10,15 @@ const quantityDisplay = document.querySelector('.cart-quantity');
 const mobileView = document.getElementById('ham-menu');
 const closeMenu = document.getElementById('close-menu');
 
+let itemCounter = 0;
  
 // <--add to cart logic-->
 addToCartButton.addEventListener('click', () => {
     let count=parseInt(quantity.textContent);
+    itemCounter += count;
     console.log(count);
-    cartsmall.textContent=parseInt(quantity.textContent);
-    if (count > 0) {
+    cartsmall.textContent=itemCounter;
+    if (itemCounter > 0) {
       cartsmall.style.display = 'block';
     } else {
       cartsmall.style.display = 'none';
@@ -32,15 +34,16 @@ addToCartButton.addEventListener('click', () => {
     }
   }
   // To handle the cart icon when clicked
-  cartIcon.addEventListener('click', () => {
+  cartIcon.addEventListener('click', (event) => {
+    console.log(event.target);
+    console.log(cartOpen);
     if(cartOpen){
       removeNotificationContent();
-      // Toggling the cart state
       cartOpen=!cartOpen;
       console.log(cartOpen);
     }
     else{
-      
+      // cartsmall.style.display='none';
       const notificationContent=document.createElement('div'); //when the cart is closed, we open it by creating the notification content
       notificationContent.classList.add('notification-content');
 
@@ -48,7 +51,7 @@ addToCartButton.addEventListener('click', () => {
       const cartTitle = document.createElement('h2');
       cartTitle.textContent = 'Cart'; 
       notificationContent.appendChild(cartTitle);
-      
+
       // To handle When the cart is empty
       const cartEmpty = document.createElement('div');
       cartEmpty.classList.add('cart-empty');
@@ -60,11 +63,18 @@ addToCartButton.addEventListener('click', () => {
       cartEmpty.appendChild(emptyCart);
 
       
-      //Notification Details Div
-      const notificationDetails = document.createElement('div');
-      notificationDetails.classList.add('notification-details');
-      notificationContent.appendChild(notificationDetails);
-
+      if(itemCounter === 0){
+        cartEmpty.style.display = 'block';
+        cartOpen=!cartOpen;
+        console.log(cartOpen);
+        document.body.appendChild(notificationContent);
+      } else {
+        
+        //Notification Details Div
+        const notificationDetails = document.createElement('div');
+        notificationDetails.classList.add('notification-details');
+        notificationContent.appendChild(notificationDetails);
+      
       // Product Image
       const productImage = document.createElement('img');
       productImage.src = './images/image-product-1-thumbnail.jpg';
@@ -102,6 +112,7 @@ addToCartButton.addEventListener('click', () => {
       totalAmount.textContent = '$' + (parseInt(productPrice.textContent ||0) * parseInt(quantityDisplay.textContent ||0));
       notificationPricing.appendChild(totalAmount);
 
+
       // Delete Icon
       const deleteIcon = document.createElement('img');
       deleteIcon.src = './images/icon-delete.svg';
@@ -109,7 +120,8 @@ addToCartButton.addEventListener('click', () => {
       deleteIcon.addEventListener('click', () => {
       notificationDetails.style.display = 'none';
       // checkoutButton.style.display = 'none';
-
+        itemCounter = 0;
+        cartsmall.style.display = 'none';
       if (notificationDetails.style.display === 'none') {
         cartEmpty.style.display = 'flex';
       } else {
@@ -118,21 +130,14 @@ addToCartButton.addEventListener('click', () => {
       }
     });
     notificationDetails.appendChild(deleteIcon);
-
-    const checkoutButton = document.createElement('button');
-    checkoutButton.textContent = 'Checkout';
-    checkoutButton.addEventListener('click', () => {
-    notificationContent.style.display = 'none';
-    quantityDisplay.textContent = '0';
-    });
-
-    notificationContent.appendChild(checkoutButton);
   
-    cartIconPopUp.appendChild(notificationContent);
-    //Toggling the cart state
-    cartOpen=!cartOpen;
-    console.log(cartOpen);
-    document.body.appendChild(notificationContent)
+      cartIconPopUp.appendChild(notificationContent);
+       // Toggling the cart state
+      cartOpen=!cartOpen;
+      console.log(cartOpen);
+      document.body.appendChild(notificationContent)
+      }
+      
     }
   });
 
