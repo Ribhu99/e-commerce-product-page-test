@@ -35,11 +35,12 @@ addToCartButton.addEventListener('click', () => {
   cartIcon.addEventListener('click', () => {
     if(cartOpen){
       removeNotificationContent();
+      // Toggling the cart state
       cartOpen=!cartOpen;
       console.log(cartOpen);
     }
     else{
-      // cartsmall.style.display='none';
+      
       const notificationContent=document.createElement('div'); //when the cart is closed, we open it by creating the notification content
       notificationContent.classList.add('notification-content');
 
@@ -101,7 +102,6 @@ addToCartButton.addEventListener('click', () => {
       totalAmount.textContent = '$' + (parseInt(productPrice.textContent ||0) * parseInt(quantityDisplay.textContent ||0));
       notificationPricing.appendChild(totalAmount);
 
-
       // Delete Icon
       const deleteIcon = document.createElement('img');
       deleteIcon.src = './images/icon-delete.svg';
@@ -118,12 +118,21 @@ addToCartButton.addEventListener('click', () => {
       }
     });
     notificationDetails.appendChild(deleteIcon);
+
+    const checkoutButton = document.createElement('button');
+    checkoutButton.textContent = 'Checkout';
+    checkoutButton.addEventListener('click', () => {
+    notificationContent.style.display = 'none';
+    quantityDisplay.textContent = '0';
+    });
+
+    notificationContent.appendChild(checkoutButton);
   
-      cartIconPopUp.appendChild(notificationContent);
-       // Toggling the cart state
-      cartOpen=!cartOpen;
-      console.log(cartOpen);
-      document.body.appendChild(notificationContent)
+    cartIconPopUp.appendChild(notificationContent);
+    //Toggling the cart state
+    cartOpen=!cartOpen;
+    console.log(cartOpen);
+    document.body.appendChild(notificationContent)
     }
   });
 
