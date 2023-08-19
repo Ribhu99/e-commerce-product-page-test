@@ -13,6 +13,11 @@ let currentIndex = 0;
 function setFeatureImg(index) {
   const featureImgElement = document.querySelector(".main-img");
 
+  // Instead of creating a new image on each click,
+  // The feature image is added to the HTML document
+  // and onClick of either the nextBtn or previousBtn
+  // the image "src" attribute is changed based on the
+  // current index
   switch (index) {
     case index > images.length - 1:
       featureImgElement.setAttribute("src", images[0]);
@@ -33,7 +38,9 @@ const previousBtnElement = document.querySelector(".previous-btn");
 
 nextBtnElement.addEventListener("click", () => {
   let nextIndex = ++currentIndex;
-
+  // This resets the value of currentIndex && nextIndex
+  //  once the current index is greater than the
+  // length of the images array
   if (currentIndex > images.length - 1) {
     currentIndex = 0;
     nextIndex = currentIndex;
@@ -44,7 +51,8 @@ nextBtnElement.addEventListener("click", () => {
 
 previousBtnElement.addEventListener("click", () => {
   let previousIndex = --currentIndex;
-
+  // This resets the value of currentIndex && nextIndex
+  //  once the currentIndex is less than the 0
   if (currentIndex < 0) {
     currentIndex = images.length - 1;
     previousIndex = currentIndex;

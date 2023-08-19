@@ -36,6 +36,10 @@
     </style>
   </head>
   <body>
+    <!-- Wrapped each image tag in a div to
+         easily control the width and height
+         of the images
+    -->
     <div class="ham-menu">
       <img src="./images/icon-menu.svg" alt="menu" class="menu-icon" />
     </div>
@@ -46,7 +50,13 @@
           <img src="./images/logo.svg" alt="logo" />
         </div>
         <div class="menu">
+          <!-- This serves as our background overlay
+               for when the mobile menu is opened
+          -->
           <div class="blur"></div>
+          <!-- This is the white background(base) on which
+               the mobile navigation links are placed on 
+          -->
           <div class="mobile-menu-bg">
             <ul class="nav-items">
               <li class="nav-item">Collections</li>
@@ -73,6 +83,10 @@
     <div class="wrapper">
       <div class="image-wrapper">
         <div class="main-img-wrapper">
+          <!-- Added the feature image to theHTML document
+               Its value will be changed by manipulating
+               the "src" attribute using JavaScript
+          -->
           <img
             src="./images/image-product-1.jpg"
             alt="feature image"
@@ -89,6 +103,7 @@
           </button>
         </div>
         <div class="sub-img-wrapper">
+          <!-- Added the thumbnails to the HTML document -->
           <img
             src="./images/image-product-1-thumbnail.jpg"
             alt="image thumbnail"
