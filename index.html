@@ -36,11 +36,12 @@
     </style>
   </head>
   <body>
+    <div class="ham-menu">
+      <img src="./images/icon-menu.svg" alt="menu" class="menu-icon" />
+    </div>
+
     <header>
       <div class="nav-menu">
-        <div class="ham-menu">
-          <img src="./images/icon-menu.svg" alt="menu" />
-        </div>
         <div class="company-logo">
           <img src="./images/logo.svg" alt="logo" />
         </div>
@@ -68,10 +69,51 @@
       </div>
     </header>
     <hr />
+
     <div class="wrapper">
       <div class="image-wrapper">
-        <div class="main-img-wrapper"></div>
-        <div class="sub-img-wrapper"></div>
+        <div class="main-img-wrapper">
+          <img
+            src="./images/image-product-1.jpg"
+            alt="feature image"
+            class="main-img"
+          />
+          <button class="previous-btn">
+            <img src="./images/icon-next.svg" alt="button to show next image" />
+          </button>
+          <button class="next-btn">
+            <img
+              src="./images/icon-next.svg"
+              alt="button to show previous image"
+            />
+          </button>
+        </div>
+        <div class="sub-img-wrapper">
+          <img
+            src="./images/image-product-1-thumbnail.jpg"
+            alt="image thumbnail"
+            class="sub-img"
+            index="0"
+          />
+          <img
+            src="./images/image-product-2-thumbnail.jpg"
+            alt="image thumbnail"
+            class="sub-img"
+            index="1"
+          />
+          <img
+            src="./images/image-product-3-thumbnail.jpg"
+            alt="image thumbnail"
+            class="sub-img"
+            index="2"
+          />
+          <img
+            src="./images/image-product-4-thumbnail.jpg"
+            alt="image thumbnail"
+            class="sub-img"
+            index="3"
+          />
+        </div>
       </div>
 
       <div class="content-wrapper">
@@ -84,49 +126,37 @@
         </p>
         <div class="price">
           <div class="price-inner1">
-            <div style="display: flex">
-              <span style="font-weight: bold">$</span>
-              <p class="discounted-price">125.00</p>
+            <div class="discounted-price-box">
+              <p>$</p>
+              <p class="discout-price">125.00</p>
             </div>
-            <div>
-              <p class="original-price">$250.00</p>
-            </div>
+            <p class="discount-percent">50%</p>
           </div>
           <div>
-            <span class="discount">50%</span>
+            <p class="original-price">$250.00</p>
           </div>
         </div>
 
         <div class="features">
           <div class="counter">
-            <div>
-              <button class="decrease">
-                <img src="./images/icon-minus.svg" alt="minus" />
-              </button>
-            </div>
-            <div>
-              <p class="count">0</p>
-            </div>
-            <div>
-              <button class="increase">
-                <img src="./images/icon-plus.svg" alt="plus" />
-              </button>
-            </div>
+            <button class="decrease">
+              <img src="./images/icon-minus.svg" alt="minus" />
+            </button>
+            <p class="count">0</p>
+            <button class="increase">
+              <img src="./images/icon-plus.svg" alt="plus" />
+            </button>
           </div>
-          <div class="cart-btn-wrapper">
-            <div class="add-to-cart-inner-div">
-              <button class="cart-btn">
-                <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
-                    fill="white"
-                    fill-rule="nonzero"
-                  ></path>
-                </svg>
-                Add To Cart
-              </button>
-            </div>
-          </div>
+          <button class="cart-btn">
+            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill="white"
+                fill-rule="nonzero"
+              ></path>
+            </svg>
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>

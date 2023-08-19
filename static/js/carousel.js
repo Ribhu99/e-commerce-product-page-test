@@ -1,60 +1,56 @@
 // array of paths to all the images we want to show for a specific product
 const images = [
-    './images/image-product-1.jpg',
-    './images/image-product-2.jpg',
-    './images/image-product-3.jpg',
-    './images/image-product-4.jpg'
-]
+  "../images/image-product-1.jpg",
+  "../images/image-product-2.jpg",
+  "../images/image-product-3.jpg",
+  "../images/image-product-4.jpg",
+];
 
 // variable activeImage tells which sub image is active now. Initially first sub image is active.
-var activeImage = 1;
-
-// get the mainImage wrapper div element
-const mainImgWrapper = document.getElementsByClassName('main-img-wrapper')[0];
+let currentIndex = 0;
 
 //function to set main image
-function setFeatureImg(index){
-    // oldImage is the image that is currently showing we want to remove it if the user clicks on any other sub image
-    const oldImage = document.getElementsByClassName('main-img')[0];
-    oldImage?.remove();
+function setFeatureImg(index) {
+  const featureImgElement = document.querySelector(".main-img");
+  console.log("index " + index);
 
-    //img is the new image that we want show in the place of old image
-    const img = document.createElement('img');
-    //setting the attributes to the element
-    img.setAttribute('src', images[index]);
-    img.setAttribute('class', 'main-img')
-    img.setAttribute('alt', 'active sneaker image')
-    //add the new element in the parent element
-    mainImgWrapper.appendChild(img);
+  switch (index) {
+    case index > images.length - 1:
+      featureImgElement.setAttribute("src", images[0]);
+      break;
+
+    case images < 0:
+      featureImgElement.setAttribute("src", images[images.length - 1]);
+      break;
+
+    default:
+      featureImgElement.setAttribute("src", images[index]);
+      break;
+  }
 }
+console.log(currentIndex);
 
-// Initialize
-setFeatureImg(0);
+const nextBtnElement = document.querySelector(".next-btn");
+const previousBtnElement = document.querySelector(".previous-btn");
 
-// set sub images
-const subImgWrapper = document.getElementsByClassName('sub-img-wrapper')[0];
-//iterate over the above sub image array
-for(let i=0; i<images.length; i++){
-    //for every path of the array create a image and assign it
-    const subimg = document.createElement('img');
-    subimg.setAttribute('src', images[i]);
-    subimg.setAttribute('class', 'sub-img')
-    subimg.setAttribute('alt', 'sneaker image '+ i)
-    //adding newly created element to parent element
-    subImgWrapper.appendChild(subimg);
+nextBtnElement.addEventListener("click", () => {
+  let nextIndex = ++currentIndex;
 
-    subimg.addEventListener('click', () => {
-        // We want to show the new image on which we've clicked
-        setFeatureImg(i);
-        
-        // remove onclick styles from all sub images
-        const oldSubImages = document.getElementsByClassName('sub-img');
-        for(let oldSubImage of oldSubImages){
-            // remove sub-img-active class from the previous sub image. sub-img-active class shows the border and transparency
-            oldSubImage.classList.remove('sub-img-active');
-        }
+  if (currentIndex > images.length - 1) {
+    currentIndex = 0;
+    nextIndex = currentIndex;
+  }
 
-        // add onclick styles on newly clicked sub-img
-        subimg.classList.add('sub-img-active');
-    })
-} 
+  setFeatureImg(nextIndex);
+});
+
+previousBtnElement.addEventListener("click", () => {
+  let previousIndex = --currentIndex;
+
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+    previousIndex = currentIndex;
+  }
+
+  setFeatureImg(previousIndex);
+});

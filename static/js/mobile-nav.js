@@ -1,17 +1,27 @@
-const hamburgerIcon = document.querySelector(".ham-menu");
+const menuIcon = document.querySelector(".menu-icon");
 const blurElement = document.querySelector(".blur");
+const mobileMenuBgEl = document.querySelector(".mobile-menu-bg");
 
-hamburgerIcon.addEventListener("click", (e) => {
-  const src = e.target.getAttribute("src");
+menuIcon.addEventListener("click", (e) => {
   const blurElementClassnames = Array.from(blurElement.classList);
 
   if (!blurElementClassnames.includes("show")) {
-    blurElement.classList.add("show");
-    hamburgerIcon.setAttribute("src", "../images/icon-close.svg");
+    openMobileNav();
   } else {
-    blurElement.classList.remove("show");
-    hamburgerIcon.setAttribute("src", "../images/icon-menu.svg");
+    closeMobileNav();
   }
-
-  console.log(blurElementClassnames);
 });
+
+const openMobileNav = () => {
+  blurElement.classList.add("show");
+  document.body.classList.add("hide");
+  mobileMenuBgEl.classList.add("show-menu");
+  menuIcon.setAttribute("src", "../../images/icon-close.svg");
+};
+
+const closeMobileNav = () => {
+  mobileMenuBgEl.classList.remove("show-menu");
+  blurElement.classList.remove("show");
+  document.body.classList.remove("hide");
+  menuIcon.setAttribute("src", "../../images/icon-menu.svg");
+};
