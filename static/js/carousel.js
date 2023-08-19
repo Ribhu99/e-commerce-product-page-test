@@ -12,7 +12,6 @@ let currentIndex = 0;
 //function to set main image
 function setFeatureImg(index) {
   const featureImgElement = document.querySelector(".main-img");
-  console.log("index " + index);
 
   switch (index) {
     case index > images.length - 1:
@@ -28,7 +27,6 @@ function setFeatureImg(index) {
       break;
   }
 }
-console.log(currentIndex);
 
 const nextBtnElement = document.querySelector(".next-btn");
 const previousBtnElement = document.querySelector(".previous-btn");
